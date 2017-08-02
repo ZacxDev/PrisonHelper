@@ -1,0 +1,16 @@
+name: PrisonHelper
+main: me.Zacx.PH.Main.PHMain
+version: 1.0
+commands:
+   gmc:
+      description: /ph help
+      usage: /<command>
+   gms:
+      description: /ph help
+      usage: /<command>
+   gma:
+      description: /ph help
+      usage: /<command>
+   tp:
+      description: /ph help
+      usage: /<command>
