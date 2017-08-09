@@ -1,5 +1,5 @@
 name: PrisonHelper
-main: me.Zacx.PH.Main.PHMain
+main: me.Zacx.PH.Main.Core
 version: 1.0
 commands:
    gmc:
@@ -12,5 +12,8 @@ commands:
       description: /ph help
       usage: /<command>
    tp:
+      description: /ph help
+      usage: /<command>
+   tphere:
       description: /ph help
       usage: /<command>

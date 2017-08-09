@@ -30,23 +30,29 @@ public class Core extends JavaPlugin {
 		{
 			p = (Player) sender;
 		}
-			
+		//MODERATOR COMMAND /GMC
 		if (cmd.getName().equalsIgnoreCase("gmc") && p.hasPermission(Access.PERM_MODERATOR)) {
 			
 			p.setGameMode(GameMode.CREATIVE);
 			p.sendMessage("§aToggled gamemode to: §bCreative§a.");
 			
-		} else if (cmd.getName().equalsIgnoreCase("gms") && p.hasPermission(Access.PERM_MODERATOR)) {
+		}
+		//MODERATOR COMMAND /GMS
+		else if (cmd.getName().equalsIgnoreCase("gms") && p.hasPermission(Access.PERM_MODERATOR)) {
 			
-			p.setGameMode(GameMode.CREATIVE);
+			p.setGameMode(GameMode.SURVIVAL);
 			p.sendMessage("§aToggled gamemode to: §bSurvival§a.");
 			
-		} else if (cmd.getName().equalsIgnoreCase("gma") && p.hasPermission(Access.PERM_MODERATOR)) {
+		}
+		//MODERATOR COMMAND /GMA
+		else if (cmd.getName().equalsIgnoreCase("gma") && p.hasPermission(Access.PERM_MODERATOR)) {
 				
-				p.setGameMode(GameMode.CREATIVE);
+				p.setGameMode(GameMode.ADVENTURE);
 				p.sendMessage("§aToggled gamemode to: §bAdventure§a.");
 				
-			} else if (cmd.getName().equalsIgnoreCase("tp") && p.hasPermission(Access.PERM_HELPER)) {
+			} 
+		//HELPER COMMAND /TP
+		else if (cmd.getName().equalsIgnoreCase("tp") && p.hasPermission(Access.PERM_HELPER)) {
 				
 				if (args.length < 1)
 				{
@@ -63,7 +69,28 @@ public class Core extends JavaPlugin {
 				}
 				
 				p.teleport(tar.getLocation().getBlock().getLocation());
-				p.sendMessage("§aTeleporting");
+				p.sendMessage("§aTeleporting §ato §b" + tar.getName() + "§a's location.");
+				
+			}
+		//HELPER COMMAND /TPHERE
+			else if (cmd.getName().equalsIgnoreCase("tphere") && p.hasPermission(Access.PERM_HELPER)) {
+				
+				if (args.length < 1)
+				{
+					p.sendMessage("§c/tphere [Player]");
+					return true;
+				}
+				
+				Player tar = Bukkit.getPlayer(args[0]);
+				
+				if (tar == null)
+				{
+					p.sendMessage("§cPlayer not found!");
+					return true;
+				}
+				
+				tar.teleport(p.getLocation().getBlock().getLocation());
+				p.sendMessage("§aTeleporting §b" + tar.getName() + " §ato your location.");
 				
 			}
 		
